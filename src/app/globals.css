@@ -1,0 +1,221 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-geist: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 28px;
+  --text-3xl: 30px;
+  --text-4xl: 38px;
+  --text-5xl: 48px;
+  --text-6xl: 64px;
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-darker: var(--brand-darker);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #feffff;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #0fafa4;
+  --primary-foreground: #feffff;
+  --secondary: #e7f7f6;
+  --secondary-foreground: #111111;
+  --muted: #f3f6f6;
+  --muted-foreground: #555555;
+  --accent: #e7f7f6;
+  --accent-foreground: #0b7f78;
+  --destructive: #dc2626;
+  --border: #e4e8e8;
+  --input: #e4e8e8;
+  --ring: #0fafa4;
+  --brand-dark: #0b3a38;
+  --brand-darker: #072e2c;
+  --chart-1: #0fafa4;
+  --chart-2: #0b7f78;
+  --chart-3: #0b3a38;
+  --chart-4: #5ee0d7;
+  --chart-5: #111111;
+  --radius: 0.75rem;
+  --sidebar: #feffff;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #0fafa4;
+  --sidebar-primary-foreground: #feffff;
+  --sidebar-accent: #e7f7f6;
+  --sidebar-accent-foreground: #0b7f78;
+  --sidebar-border: #e4e8e8;
+  --sidebar-ring: #0fafa4;
+}
+
+.dark {
+  --background: #072e2c;
+  --foreground: #feffff;
+  --card: #0b3a38;
+  --card-foreground: #feffff;
+  --popover: #0b3a38;
+  --popover-foreground: #feffff;
+  --primary: #0fafa4;
+  --primary-foreground: #feffff;
+  --secondary: #0f4f4b;
+  --secondary-foreground: #feffff;
+  --muted: #0f4f4b;
+  --muted-foreground: #b7c9c8;
+  --accent: #0f4f4b;
+  --accent-foreground: #feffff;
+  --destructive: #f87171;
+  --border: #ffffff1a;
+  --input: #ffffff26;
+  --ring: #0fafa4;
+  --brand-dark: #0b3a38;
+  --brand-darker: #051f1d;
+  --chart-1: #0fafa4;
+  --chart-2: #5ee0d7;
+  --chart-3: #feffff;
+  --chart-4: #0b7f78;
+  --chart-5: #e7f7f6;
+  --sidebar: #0b3a38;
+  --sidebar-foreground: #feffff;
+  --sidebar-primary: #0fafa4;
+  --sidebar-primary-foreground: #feffff;
+  --sidebar-accent: #0f4f4b;
+  --sidebar-accent-foreground: #feffff;
+  --sidebar-border: #ffffff1a;
+  --sidebar-ring: #0fafa4;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth font-sans text-base;
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-background text-base font-normal leading-[120%] text-foreground;
+  }
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(to right, rgb(17 17 17 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(17 17 17 / 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility grid-bg-dark {
+  background-image:
+    linear-gradient(to right, rgb(254 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(254 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes clients-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility clients-marquee {
+  animation: clients-marquee 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee {
+    animation: none;
+  }
+}
+
+@utility ecosystem-bg {
+  background-image: linear-gradient(
+    180deg,
+    rgba(15, 175, 164, 0) 0%,
+    rgba(16, 133, 252, 0.16) 46%,
+    rgba(255, 255, 255, 0.2) 92%
+  );
+}
+
+@utility pocket-bg {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(218, 255, 253, 0) 0%,
+      rgba(219, 246, 254, 0.5) 25%,
+      rgba(220, 237, 255, 0.5) 50%,
+      rgba(220, 237, 255, 0) 100%
+    ),
+    url("/home/hero-bg.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, cover;
+  background-position: center, center;
+}
+
+@utility modules-bg {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(231, 245, 250, 0) 0%,
+      rgba(198, 226, 254, 0.5) 50%,
+      rgb(255 255 255 / 0.96) 100%
+    ),
+    url("/home/hero-bg.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, cover;
+  background-position: center, center;
+}
