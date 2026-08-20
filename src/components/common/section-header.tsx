@@ -18,7 +18,7 @@ export function SectionHeader({
   subtitleClassName,
 }: SectionHeaderProps) {
   return (
-    <div className={cn("mx-auto max-w-3xl text-center", className)}>
+    <div className={cn("mx-auto max-w-4xl text-center", className)}>
       <h2
         className={cn(
           "align-middle text-4xl font-medium text-foreground",

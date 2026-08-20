@@ -7,7 +7,7 @@ export const navLinks = [
     href: "#product",
     label: "Products",
   },
-  { href: "#pricing", label: "Pricing" },
+  { href: "/pricing", label: "Pricing" },
   { href: "#about", label: "About Us" },
 ] as const;
 
@@ -16,7 +16,7 @@ export const footerLinks = {
     { href: "#product", label: "Products" },
     { href: "#solutions", label: "Solutions" },
     { href: "#", label: "Resources" },
-    { href: "#pricing", label: "Pricing" },
+    { href: "/pricing", label: "Pricing" },
     { href: "#about", label: "About Us" },
   ],
   utility: [
