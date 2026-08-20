@@ -176,9 +176,50 @@
   animation: clients-marquee 40s linear infinite;
 }
 
+@keyframes orbit-spin {
+  from {
+    transform: rotate(var(--orbit-start, 0deg));
+  }
+  to {
+    transform: rotate(calc(var(--orbit-start, 0deg) + 360deg));
+  }
+}
+
+@keyframes orbit-counter {
+  from {
+    transform: rotate(calc(-1 * var(--orbit-start, 0deg)));
+  }
+  to {
+    transform: rotate(calc(-1 * var(--orbit-start, 0deg) - 360deg));
+  }
+}
+
+@utility orbit-spin {
+  transform-origin: center;
+  animation: orbit-spin 36s linear infinite;
+}
+
+@utility orbit-item {
+  animation: orbit-counter 36s linear infinite;
+}
+
+@utility orbit-paused {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .clients-marquee {
     animation: none;
+  }
+
+  .orbit-spin {
+    animation: none;
+    transform: rotate(var(--orbit-start, 0deg));
+  }
+
+  .orbit-item {
+    animation: none;
+    transform: rotate(calc(-1 * var(--orbit-start, 0deg)));
   }
 }
 
