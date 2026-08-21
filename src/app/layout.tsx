@@ -26,6 +26,10 @@ export const metadata: Metadata = {
   title: "Zracko — Every Business from One Platform",
   description:
     "Run POS, payments, inventory, CRM, and marketing from a single platform built for growing businesses.",
+  icons: {
+    icon: "/icons/zracko-logo.png",
+    apple: "/icons/zracko-logo.png",
+  },
 };
 
 export default function RootLayout({
