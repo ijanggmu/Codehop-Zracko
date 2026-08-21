@@ -6,7 +6,12 @@ import {
 } from "@/components/ui/accordion";
 import { SectionHeader } from "@/components/common/section-header";
 
-const faqs = [
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+const faqs: FaqItem[] = [
   {
     question: "What is Zracko?",
     answer:
@@ -34,23 +39,26 @@ const faqs = [
   },
 ];
 
-export function Faq() {
+export function Faq({
+  items = faqs,
+  subtitle = "Everything you need to know about getting started with Zracko.",
+}: {
+  items?: FaqItem[];
+  subtitle?: string;
+}) {
   return (
     <section id="faq" className="mt-30">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
-        <SectionHeader
-          title="Questions, Answered."
-          subtitle="Everything you need to know about getting started with Zracko."
-        />
+        <SectionHeader title="Questions, Answered." subtitle={subtitle} />
         <Accordion
           type="single"
           collapsible
           className="w-full max-w-[812px] gap-3"
           defaultValue="item-0"
         >
-          {faqs.map((faq, index) => (
+          {items.map((faq, index) => (
             <AccordionItem
-              key={faq.question}
+              key={`${faq.question}-${index}`}
               value={`item-${index}`}
               className="rounded-[16px] border-0 bg-[#F7FAFF] px-6 not-last:border-b-0"
             >

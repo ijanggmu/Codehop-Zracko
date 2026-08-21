@@ -4,9 +4,7 @@ import { ArrowDown } from "lucide-react";
 
 import {
   Avatar,
-  AvatarFallback,
   AvatarGroup,
-  AvatarImage,
 } from "@/components/ui/avatar";
 import { GradientButton } from "@/components/common/gradient-button";
 import { Container } from "@/components/landing/container";
@@ -71,13 +69,13 @@ export function Hero() {
         <ul className="mt-16 flex flex-wrap items-start justify-center gap-x-10 gap-y-8 sm:gap-x-12">
           {services.map(({ src, label }) => (
             <li key={label} className="relative flex flex-col items-center gap-2.5">
-              <span className="relative flex size-14 items-center justify-center rounded-full bg-[#0FAFA41A]">
+              <span className="relative flex size-14 items-center justify-center overflow-hidden rounded-full bg-[#0FAFA41A]">
                 <Image
                   src={src}
                   alt={label}
                   width={28}
                   height={30}
-                  className="h-[29.64px] w-[28px] object-contain opacity-100"
+                  className="h-[29.64px] w-[28px] object-contain mix-blend-multiply"
                 />
               </span>
               <span className="text-sm font-medium line-height-[21px] text-[#141414]">{label}</span>
@@ -85,15 +83,20 @@ export function Hero() {
           ))}
         </ul>
 
-        <div className="mt-8 inline-flex h-14 w-full max-w-[550px] items-center gap-3 rounded-[24px] bg-white px-4 py-1 opacity-100 shadow-[0px_2px_10px_0px_#0000001A] mx-auto">
+        <div className="mt-8 mx-auto inline-flex h-14 w-full max-w-[550px] items-center gap-3 rounded-[24px] bg-white px-4 py-1 shadow-[0px_2px_10px_0px_#0000001A]">
           <AvatarGroup className="*:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-white">
             {avatars.map((avatar) => (
               <Avatar
                 key={avatar.fallback}
-                className="size-12 rounded-[24px] border-2 border-white after:hidden"
+                className="relative size-12 overflow-hidden rounded-full border-2 border-white after:hidden"
               >
-                <AvatarImage src={avatar.src} alt={avatar.alt} />
-                <AvatarFallback>{avatar.fallback}</AvatarFallback>
+                <Image
+                  src={avatar.src}
+                  alt={avatar.alt}
+                  fill
+                  className="object-cover"
+                  sizes="48px"
+                />
               </Avatar>
             ))}
           </AvatarGroup>
