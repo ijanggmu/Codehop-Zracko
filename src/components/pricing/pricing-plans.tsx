@@ -32,7 +32,6 @@ type Plan = {
   name: string;
   description: string;
   monthlyPrice: number;
-  featured?: boolean;
   badge?: string;
   features: { label: string; icon: LucideIcon }[];
 };
@@ -55,7 +54,6 @@ const plans: Plan[] = [
     name: "Zracko Pro+",
     description: "For growing businesses that need the full system.",
     monthlyPrice: 79,
-    featured: true,
     badge: "Most Popular",
     features: [
       { label: "Everything in Zracko Starter", icon: Check },
@@ -177,8 +175,7 @@ export function PricingPlans() {
                 href="/#download"
                 className={cn(
                   "mt-6 inline-flex h-11 w-full items-center justify-center rounded-full border border-[#E0E0E0] bg-white text-sm font-medium text-foreground transition-all",
-                  plan.featured &&
-                    "group-hover:border-transparent group-hover:bg-[linear-gradient(90deg,#0FAFA4_0%,#0B806E_100%)] group-hover:text-white group-hover:shadow-[0_4px_12px_rgba(11,128,110,0.22)]"
+                  "group-hover:border-transparent group-hover:bg-[linear-gradient(90deg,#0FAFA4_0%,#0B806E_100%)] group-hover:text-white group-hover:shadow-[0_4px_12px_rgba(11,128,110,0.22)]"
                 )}
               >
                 Start Free Trial

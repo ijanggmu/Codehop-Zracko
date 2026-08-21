@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Check, CircleHelp } from "lucide-react";
 
@@ -108,11 +109,11 @@ const rows: CompareRow[] = [
 ];
 
 const actions = [
-  { label: "Download", href: "/#download" },
-  { label: "Select Plan", href: "/#download" },
-  { label: "Create Organization", href: "/#download" },
-  { label: "Select Plan", href: "/#download" },
-  { label: "Select Plan", href: "/#about" },
+  { label: "Download", href: "/#download", icon: "/pricing/iphone.png" },
+  { label: "Select Plan", href: "/#download", icon: "/pricing/plan.png" },
+  { label: "Create Organization", href: "/#download", icon: "/pricing/Icon.png" },
+  { label: "Select Plan", href: "/#download", icon: "/pricing/Icon.png" },
+  { label: "Select Plan", href: "/#about", icon: "/pricing/Icon.png" },
 ];
 
 function CellValue({ value }: { value: Cell }) {
@@ -175,14 +176,25 @@ export function PricingCompare() {
             ))}
           </div>
 
-          <div className="grid grid-cols-[minmax(240px,1.6fr)_repeat(5,minmax(110px,1fr))] items-center pt-8">
-            <div />
+          <div className="flex flex-row items-center pt-8">
+            <div className=" min-w-[200px]" />
             {actions.map((action, index) => (
-              <div key={`${action.label}-${index}`} className="flex justify-center px-1">
+              <div
+                key={`${action.label}-${index}`}
+                className="flex min-w-[110px] flex-1 justify-center px-1"
+              >
                 <Link
                   href={action.href}
-                  className="inline-flex h-9 min-h-9 items-center justify-center gap-2 rounded-[8px] bg-[#F7FAFF] px-3 py-2 text-sm font-medium text-foreground shadow-[0px_1px_0.4px_0px_#FFFFFF_inset,0px_-1px_0.4px_0px_#00000033_inset,0px_0px_14px_0px_#FFFFFF30,0px_0px_0px_2px_#00000080]"
+                  className="inline-flex h-9 min-h-9 items-center justify-center gap-2 rounded-[8px] bg-[#F7FAFF] px-3 py-2 text-sm font-medium text-foreground shadow-[0px_2px_0.4px_0px_#00000033]"
                 >
+                  <Image
+                    src={action.icon}
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="size-4 shrink-0 object-contain"
+                    aria-hidden
+                  />
                   {action.label}
                 </Link>
               </div>
