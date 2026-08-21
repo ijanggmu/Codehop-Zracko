@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { Quote } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 const testimonials = [
   {
     quote:
@@ -39,12 +41,12 @@ const testimonials = [
   },
 ] as const;
 
-export function BusinessClients() {
+export function BusinessClients({ className }: { className?: string }) {
   const [active, setActive] = useState(0);
   const testimonial = testimonials[active];
 
   return (
-    <section className="bg-white pb-[102px]">
+    <section className={cn("bg-white", className)}>
       <div className="mx-auto flex w-full max-w-[1440px] justify-center px-5 sm:px-12 xl:px-[120px]">
         <article className="relative flex h-auto min-h-[272px] w-full max-w-[1200px] flex-col items-center justify-center gap-6 rounded-[24px] bg-white p-8 shadow-[5px_5px_50px_0px_#0000001A] xl:h-[272px]">
           <Quote className="absolute top-8 right-8 size-12 text-primary/40" strokeWidth={1.5} />

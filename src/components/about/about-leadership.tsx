@@ -31,7 +31,7 @@ function LeadershipCard({
 
 export function AboutLeadership() {
   return (
-    <section className="bg-white py-[102px]">
+    <section className="mt-30 bg-white">
       <div className="mx-auto flex w-full  flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title="Our leadership team"

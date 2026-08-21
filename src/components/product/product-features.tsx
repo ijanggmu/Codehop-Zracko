@@ -52,7 +52,7 @@ export function ProductFeatures({
   title?: string;
 }) {
   return (
-    <section className="bg-[linear-gradient(180deg,rgba(15,175,164,0)_0%,rgba(15,175,164,0.05)_50%,rgba(16,133,252,0.05)_75%,rgba(16,133,252,0)_100%)] mt-[30px]">
+    <section className="mt-30 bg-[linear-gradient(180deg,rgba(15,175,164,0)_0%,rgba(15,175,164,0.05)_50%,rgba(16,133,252,0.05)_75%,rgba(16,133,252,0)_100%)]">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title={title}

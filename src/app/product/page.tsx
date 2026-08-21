@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Faq } from "@/components/landing/faq";
 import { ProductFeatures } from "@/components/product/product-features";
 import { ProductHero } from "@/components/product/product-hero";
+import { ProductShowcase } from "@/components/product/product-showcase";
 
 export const metadata: Metadata = {
   title: "Products — Zracko",
@@ -52,6 +53,7 @@ export default function ProductPage() {
   return (
     <>
       <ProductHero />
+      <ProductShowcase />
       <ProductFeatures />
       <Faq
         items={productFaqs}

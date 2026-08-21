@@ -11,7 +11,7 @@ const cards = [
 
 export function BusinessFlexible() {
   return (
-    <section className="bg-white pt-[102px] pb-[102px]">
+    <section className="mt-30 bg-white">
       <div className="mx-auto flex min-h-[1223px] w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title="Blazingly fast, amazingly flexible"
