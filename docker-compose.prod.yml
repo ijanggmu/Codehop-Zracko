@@ -1,6 +1,9 @@
 services:
   app:
-    image: ghcr.io/dinesh-jrr/zracko:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zracko:local
     container_name: zracko-app
     restart: always
     environment:
