@@ -3,8 +3,6 @@ services:
     image: ghcr.io/dinesh-jrr/zracko:latest
     container_name: zracko-app
     restart: always
-    env_file:
-      - .env.production
     environment:
       NODE_ENV: production
       PORT: "3000"
