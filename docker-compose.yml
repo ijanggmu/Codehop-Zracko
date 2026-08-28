@@ -6,8 +6,6 @@ services:
     image: zracko:latest
     container_name: zracko
     restart: unless-stopped
-    ports:
-      - "127.0.0.1:3000:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
@@ -15,3 +13,15 @@ services:
     env_file:
       - path: .env
         required: false
+    networks:
+      - edge
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=edge"
+      - "traefik.http.routers.zracko.rule=Host(`zracko.com`)"
+      - "traefik.http.routers.zracko.entrypoints=websecure"
+      - "traefik.http.services.zracko.loadbalancer.server.port=3000"
+
+networks:
+  edge:
+    external: true
