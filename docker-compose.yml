@@ -18,7 +18,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=edge"
-      - "traefik.http.routers.zracko.rule=Host(`zracko.com`)"
+      - "traefik.http.routers.zracko.rule=Host(`zracko.com`) || Host(`www.zracko.com`)"
       - "traefik.http.routers.zracko.entrypoints=websecure"
       - "traefik.http.services.zracko.loadbalancer.server.port=3000"
 
