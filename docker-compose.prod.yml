@@ -1,0 +1,14 @@
+services:
+  app:
+    image: ghcr.io/dinesh-jrr/zracko:latest
+    container_name: zracko
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    env_file:
+      - path: .env
+        required: false
