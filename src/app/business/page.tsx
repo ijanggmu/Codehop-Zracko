@@ -6,6 +6,7 @@ import { BusinessHero } from "@/components/business/business-hero";
 import { ProductFeatures } from "@/components/product/product-features";
 import { InYourPocket } from "@/components/landing/in-your-pocket";
 import { Stats } from "@/components/landing/stats";
+import { DownloadCta } from "@/components/landing/download-cta";
 
 export const metadata: Metadata = {
   title: "Business — Zracko",
@@ -19,9 +20,10 @@ export default function BusinessPage() {
       <BusinessHero />
       <Stats/>
       <BusinessFlexible />
-      <BusinessClients />
+      <BusinessClients className="mt-30" />
       <ProductFeatures title="More Business" />
       <InYourPocket />
+      <DownloadCta />
     </>
   );
 }

@@ -7,15 +7,8 @@ import {
   AvatarGroup,
 } from "@/components/ui/avatar";
 import { GradientButton } from "@/components/common/gradient-button";
+import { HeroServices } from "@/components/common/hero-services";
 import { Container } from "@/components/landing/container";
-
-const services = [
-  { label: "Hair Saloon", src: "/home/job-1.jpeg" },
-  { label: "Beauty Saloon", src: "/home/job-2.jpeg" },
-  { label: "Spa", src: "/home/job-3.jpeg" },
-  { label: "Threading", src: "/home/job-5.jpeg" },
-  { label: "Massage Studio", src: "/home/job-6.jpeg" },
-];
 
 const avatars = [
   {
@@ -42,7 +35,7 @@ const avatars = [
 
 export function Hero() {
   return (
-    <section className="relative -mt-24 overflow-hidden bg-primary-foreground bg-[url('/home/hero-bg.png')] bg-cover bg-center bg-no-repeat pt-27 pb-15 md:pt-35 md:pb-20">
+    <section className="relative -mt-24 overflow-hidden bg-primary-foreground bg-[url('/home/hero-bg.png')] bg-cover bg-center bg-no-repeat pt-27 md:pt-35 pb-10">
       <Container className="relative flex flex-col items-center text-center">
         <h1 className=" text-2xl font-semibold tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl">
           Every Business from{" "}
@@ -66,22 +59,7 @@ export function Hero() {
           </Link>
         </GradientButton>
 
-        <ul className="mt-16 flex flex-wrap items-start justify-center gap-x-10 gap-y-8 sm:gap-x-12">
-          {services.map(({ src, label }) => (
-            <li key={label} className="relative flex flex-col items-center gap-2.5">
-              <span className="relative flex size-14 items-center justify-center overflow-hidden rounded-full bg-[#0FAFA41A]">
-                <Image
-                  src={src}
-                  alt={label}
-                  width={28}
-                  height={30}
-                  className="h-[29.64px] w-[28px] object-contain mix-blend-multiply"
-                />
-              </span>
-              <span className="text-sm font-medium line-height-[21px] text-[#141414]">{label}</span>
-            </li>
-          ))}
-        </ul>
+        <HeroServices className="mt-16" />
 
         <div className="mt-8 mx-auto inline-flex h-14 w-full max-w-[550px] items-center gap-3 rounded-[24px] bg-white px-4 py-1 shadow-[0px_2px_10px_0px_#0000001A]">
           <AvatarGroup className="*:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-white">

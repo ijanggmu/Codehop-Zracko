@@ -46,6 +46,32 @@ const columns = [
   },
 ] as const;
 
+function ColumnTitle({ title }: { title: string }) {
+  return (
+    <h3 className="flex h-auto min-h-10 w-full items-center gap-3 rounded-[12px] bg-[#F2FBFB] px-4 py-2 text-sm font-medium tracking-wide text-[#555555] uppercase sm:h-10 sm:py-0 sm:text-base">
+      {title}
+    </h3>
+  );
+}
+
+function ColumnList({ features }: { features: readonly string[] }) {
+  return (
+    <ul className="flex flex-col gap-4">
+      {features.map((feature) => (
+        <li
+          key={feature}
+          className="flex h-12 w-full items-center gap-3 rounded-[12px] border border-[#E0E0E0] bg-white px-4 py-2"
+        >
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <LayoutGrid className="size-4" />
+          </span>
+          <span className="text-sm font-regular text-[#141414]">{feature}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function ProductFeatures({
   title = "More Features",
 }: {
@@ -59,33 +85,25 @@ export function ProductFeatures({
           subtitle="Most businesses run five different tools that don't talk to each other."
         />
 
-        <div className="flex w-full max-w-[1200px] flex-col gap-4">
-          <div className="grid w-full grid-cols-1 gap-4 rounded-[16px] bg-white px-4 py-3 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid w-full max-w-[1200px] grid-cols-1 gap-8 sm:grid-cols-2 xl:hidden">
+          {columns.map((column) => (
+            <div key={column.title} className="flex flex-col gap-4">
+              <ColumnTitle title={column.title} />
+              <ColumnList features={column.features} />
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden w-full max-w-[1200px] flex-col gap-4 xl:flex">
+          <div className="grid w-full grid-cols-4 gap-4 rounded-[16px] bg-white px-4 py-3">
             {columns.map((column) => (
-              <h3
-                key={column.title}
-                className="flex h-10 w-full  items-center gap-3 rounded-[12px] bg-[#F2FBFB] px-4 text-base font-medium tracking-wide text-[#555555] uppercase"
-              >
-                {column.title}
-              </h3>
+              <ColumnTitle key={column.title} title={column.title} />
             ))}
           </div>
 
-          <div className="grid h-auto w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:h-[400px] xl:grid-cols-4">
+          <div className="grid h-[400px] w-full grid-cols-4 gap-4">
             {columns.map((column) => (
-              <ul key={column.title} className="flex flex-col gap-4">
-                {column.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex h-12 w-full  items-center gap-3 rounded-[12px] border border-[#E0E0E0] bg-white px-4 py-2"
-                  >
-                    <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <LayoutGrid className="size-4" />
-                    </span>
-                    <span className="text-sm font-regular text-[#141414]">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <ColumnList key={column.title} features={column.features} />
             ))}
           </div>
         </div>

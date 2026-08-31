@@ -2,13 +2,15 @@ export const navLinks = [
   {
     href: "/business",
     label: "Business",
+    hasDropdown: true,
   },
   {
     href: "/product",
-    label: "Products",
+    label: "Features",
+    hasDropdown: true,
   },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About Us" },
+  { href: "/pricing", label: "Pricing", hasDropdown: false },
+  { href: "/about", label: "About Us", hasDropdown: false },
 ] as const;
 
 export const footerLinks = {

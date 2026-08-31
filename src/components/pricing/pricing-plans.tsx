@@ -88,8 +88,8 @@ export function PricingPlans() {
   const [billing, setBilling] = useState<Billing>("monthly");
 
   return (
-    <section className="pricing-bg min-h-screen pb-20">
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center px-5 pt-10 sm:px-12 xl:px-[120px]">
+    <section className="pricing-bg relative -mt-24 min-h-screen pt-27 md:pt-35">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title={
             <>
@@ -136,7 +136,7 @@ export function PricingPlans() {
           {plans.map((plan) => (
             <article
               key={plan.name}
-              className="group relative flex h-[652px] w-[384px] flex-col rounded-[24px] border-2 border-transparent bg-[#FFFFFF] px-6 pt-8 pb-8 shadow-[5px_5px_50px_0px_#0000001A] transition-colors hover:border-primary"
+              className="group relative flex h-auto w-full max-w-[384px] flex-col rounded-[24px] border-2 border-transparent bg-[#FFFFFF] px-6 pt-8 pb-8 shadow-[5px_5px_50px_0px_#0000001A] transition-colors hover:border-primary lg:h-[652px]"
             >
               {plan.badge ? (
                 <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-xs font-medium text-white">
@@ -184,7 +184,7 @@ export function PricingPlans() {
           ))}
         </div>
 
-        <div className="mt-6 flex h-[248px] w-full max-w-[1200px] flex-col items-center justify-center gap-6 rounded-[24px] bg-[#FFFFFF] p-8 text-center shadow-[5px_5px_50px_0px_#0000001A]">
+        <div className="mt-6 flex h-auto w-full max-w-[1200px] flex-col items-center justify-center gap-6 rounded-[24px] bg-[#FFFFFF] p-6 text-center shadow-[5px_5px_50px_0px_#0000001A] sm:h-[248px] sm:p-8">
           <div>
             <p className="text-sm font-medium text-muted-foreground">Zracko Pro</p>
             <h3 className="mt-2 text-3xl font-medium text-foreground md:text-4xl">

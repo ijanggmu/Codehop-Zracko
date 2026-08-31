@@ -19,20 +19,29 @@ const EXPAND_MS = 1800;
 
 export function AboutHero() {
   const [featured, setFeatured] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const syncDesktop = () => setIsDesktop(desktop.matches);
+    syncDesktop();
+    desktop.addEventListener("change", syncDesktop);
+
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) {
       setFeatured(true);
-      return;
+      return () => desktop.removeEventListener("change", syncDesktop);
     }
 
     const expand = window.setTimeout(() => setFeatured(true), 900);
-    return () => window.clearTimeout(expand);
+    return () => {
+      window.clearTimeout(expand);
+      desktop.removeEventListener("change", syncDesktop);
+    };
   }, []);
 
   return (
-    <section className="pricing-bg overflow-hidden pb-20 pt-10">
+    <section className="pricing-bg relative -mt-24 overflow-hidden pt-27 md:pt-35">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title={
@@ -50,22 +59,28 @@ export function AboutHero() {
 
       <div
         className={cn(
-          "mx-auto mt-12 flex h-[600px] w-full max-w-[1440px] items-end justify-center overflow-hidden",
-          featured ? "" : "gap-4"
+          "mx-auto mt-12 flex h-[420px] w-full max-w-[1440px] items-end justify-center overflow-hidden md:h-[600px]",
+          featured && isDesktop ? "" : "gap-4"
         )}
       >
         {galleryCards.map((card, index) => {
           const isCenter = index === CENTER_INDEX;
           const isAdjacent = index === CENTER_INDEX - 1 || index === CENTER_INDEX + 1;
-          const visible = !featured || isCenter || isAdjacent;
+          const visible = isDesktop
+            ? !featured || isCenter || isAdjacent
+            : isCenter;
 
-          const width = featured
+          const width = !isDesktop
             ? isCenter
-              ? "min(900px, 64%)"
-              : isAdjacent
-                ? 140
-                : 0
-            : 384;
+              ? "min(100%, 340px)"
+              : 0
+            : featured
+              ? isCenter
+                ? "min(900px, 64%)"
+                : isAdjacent
+                  ? 140
+                  : 0
+              : 384;
 
           return (
             <div
@@ -73,10 +88,10 @@ export function AboutHero() {
               className="relative shrink-0 overflow-hidden rounded-[24px] transition-all ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{
                 width,
-                height: card.height,
+                height: isDesktop ? card.height : isCenter ? 400 : 0,
                 opacity: visible ? 1 : 0,
-                marginLeft: featured && visible ? 8 : 0,
-                marginRight: featured && visible ? 8 : 0,
+                marginLeft: featured && visible && isDesktop ? 8 : 0,
+                marginRight: featured && visible && isDesktop ? 8 : 0,
                 transitionDuration: `${EXPAND_MS}ms`,
               }}
             >

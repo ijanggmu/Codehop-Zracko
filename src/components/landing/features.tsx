@@ -110,7 +110,7 @@ export function Features() {
           {features.map(({ icon: Icon, title, description }) => (
             <article
               key={title}
-              className="flex h-[303px] w-[351px] shrink-0 flex-col gap-6 rounded-[24px] border border-[#E0E0E0] bg-white p-8"
+              className="flex h-auto min-h-[280px] w-[min(85vw,351px)] shrink-0 flex-col gap-6 rounded-[24px] border border-[#E0E0E0] bg-white p-6 sm:h-[303px] sm:w-[351px] sm:p-8"
             >
               <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Icon className="size-5" />

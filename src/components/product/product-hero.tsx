@@ -1,21 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { GradientButton } from "@/components/common/gradient-button";
+import { HeroServices } from "@/components/common/hero-services";
 import { SectionHeader } from "@/components/common/section-header";
-
-const services = [
-  { label: "Hair Saloon", src: "/home/job-1.jpeg" },
-  { label: "Beauty Saloon", src: "/home/job-2.jpeg" },
-  { label: "Spa", src: "/home/job-3.jpeg" },
-  { label: "Threading", src: "/home/job-5.jpeg" },
-  { label: "Massage Studio", src: "/home/job-6.jpeg" },
-];
 
 export function ProductHero() {
   return (
-    <section className="pricing-bg overflow-hidden pb-20 pt-10">
+    <section className="pricing-bg relative -mt-24 overflow-hidden pt-27 md:pt-35">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title={
@@ -30,24 +22,7 @@ export function ProductHero() {
           className="max-w-[700px]"
         />
 
-        <ul className="mt-16 flex flex-wrap items-start justify-center gap-x-10 gap-y-8 sm:gap-x-12">
-          {services.map(({ src, label }) => (
-            <li key={label} className="relative flex flex-col items-center gap-2.5">
-              <span className="relative flex size-14 items-center justify-center overflow-hidden rounded-full bg-[#0FAFA41A]">
-                <Image
-                  src={src}
-                  alt={label}
-                  width={28}
-                  height={30}
-                  className="h-[29.64px] w-[28px] object-contain mix-blend-multiply"
-                />
-              </span>
-              <span className="text-sm font-medium leading-[21px] text-[#141414]">
-                {label}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <HeroServices className="mt-16" />
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <GradientButton asChild>

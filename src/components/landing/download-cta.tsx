@@ -6,11 +6,11 @@ export function DownloadCta() {
   return (
     <section
       id="download"
-      className="relative mt-30 h-[270px] w-full overflow-hidden bg-[#002A27] [background-image:radial-gradient(circle,rgb(255_255_255/0.14)_1px,transparent_1.2px)] [background-size:22px_22px]"
+      className="relative mt-30 h-auto w-full overflow-hidden bg-[#002A27] py-10 [background-image:radial-gradient(circle,rgb(255_255_255/0.14)_1px,transparent_1.2px)] [background-size:22px_22px] sm:py-12 lg:h-[270px] lg:py-0"
     >
       <div className="relative mx-auto h-full w-full max-w-[1440px]">
         <div className="flex h-full flex-col justify-center px-5 sm:px-12 xl:px-[120px]">
-          <h2 className="align-middle text-[38px] font-medium leading-[43.2px] text-white">
+          <h2 className="align-middle text-2xl font-medium leading-tight text-white sm:text-[38px] sm:leading-[43.2px]">
             Download The App Now!
           </h2>
           <div className="mt-5">

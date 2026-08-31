@@ -12,7 +12,7 @@ const cards = [
 export function BusinessFlexible() {
   return (
     <section className="mt-30 bg-white">
-      <div className="mx-auto flex min-h-[1223px] w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title="Blazingly fast, amazingly flexible"
           subtitle="Most businesses run five different tools that don't talk to each other."
@@ -22,10 +22,10 @@ export function BusinessFlexible() {
           {cards.map((card) => (
             <article
               key={card.number}
-              className="flex h-[480px] w-full max-w-[580px] flex-col gap-6 rounded-[24px] border border-[#E0E0E0] bg-white p-10 mx-auto lg:mx-0"
+              className="mx-auto flex h-auto w-full max-w-[580px] flex-col gap-6 rounded-[24px] border border-[#E0E0E0] bg-white p-6 sm:p-10 lg:mx-0 lg:h-[480px]"
             >
               <p className="text-lg font-medium text-primary">{card.number}</p>
-              <div className="relative mx-auto h-[260px] w-full max-w-[484px]">
+              <div className="relative mx-auto h-[180px] w-full max-w-[484px] sm:h-[260px]">
                 <Image
                   src={card.image}
                   alt={card.alt}

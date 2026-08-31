@@ -91,9 +91,9 @@ function FeatureCard({
   alt,
 }: (typeof featureCards)[number]) {
   return (
-    <article className="mx-auto flex h-[480px] w-full max-w-[580px] flex-col gap-6 rounded-[24px] border border-[#E0E0E0] bg-white p-10 lg:mx-0">
+    <article className="mx-auto flex h-auto w-full max-w-[580px] flex-col gap-6 rounded-[24px] border border-[#E0E0E0] bg-white p-6 sm:p-10 lg:mx-0 lg:h-[480px]">
       <p className="text-lg font-medium text-primary">{number}</p>
-      <div className="relative mx-auto h-[260px] w-[484px] max-w-full">
+      <div className="relative mx-auto h-[180px] w-full max-w-[484px] sm:h-[260px]">
         <Image
           src={image}
           alt={alt}
@@ -121,7 +121,7 @@ function ProductTestimonial() {
 
   return (
     <article className="relative flex min-h-[272px] w-full flex-col items-center justify-center gap-6 rounded-[24px] bg-white p-8 shadow-[5px_5px_50px_0px_#0000001A]">
-      <p className="max-w-[820px] text-center text-[24px] font-semibold leading-snug text-[#141414]">
+      <p className="max-w-[820px] text-center text-lg font-semibold leading-snug text-[#141414] sm:text-[24px]">
         “{testimonial.quote}”
       </p>
       <div className="flex items-center gap-3">
@@ -181,20 +181,21 @@ export function ProductShowcase() {
               key={item.title}
               className="flex h-auto w-full max-w-[1200px] flex-col items-center gap-8 pt-16 lg:h-[544px] lg:flex-row lg:items-center lg:gap-[103px]"
             >
-              <div className="relative h-[480px] w-full max-w-[555px] shrink-0 overflow-hidden rounded-[24px] lg:w-[555px]">
+              <div className="w-full max-w-[555px] shrink-0 overflow-hidden rounded-[24px] lg:w-[555px]">
                 <Image
                   src={item.image}
                   alt={item.alt}
-                  fill
-                  className="object-cover"
-                  sizes="555px"
+                  width={555}
+                  height={480}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 555px"
                 />
               </div>
               <div className="flex w-full max-w-[542px] flex-col items-start lg:flex-1">
                 <span className="inline-flex h-7 items-center rounded-full bg-secondary px-3 text-xs font-medium tracking-[0.08em] text-primary uppercase">
                   {item.badge}
                 </span>
-                <h3 className="mt-4 text-4xl font-medium text-[#141414]">
+                <h3 className="mt-4 text-2xl font-medium text-[#141414] sm:text-4xl">
                   {item.title}
                 </h3>
                 <p className="mt-4 text-base font-light leading-[140%] text-muted-foreground">

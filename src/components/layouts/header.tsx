@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Menu } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { Logo } from "@/components/common/logo";
 import { GradientButton } from "@/components/common/gradient-button";
+import { RequestDemoDialog } from "@/components/common/request-demo-dialog";
 import { navLinks } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -23,9 +24,9 @@ export function Header() {
 
   return (
     <header className="fixed top-4 right-0 left-0 z-50 flex justify-center px-4">
-      <div className="flex h-[62px] w-full max-w-[1200px] items-center justify-between rounded-[18px] bg-white px-10 opacity-100 shadow-[0_4px_24px_rgb(17_17_17/0.06)]">
+      <div className="flex h-[62px] w-full max-w-[1200px] items-center justify-between rounded-[18px] bg-white px-4 opacity-100 shadow-[0_4px_24px_rgb(17_17_17/0.06)] sm:px-6 md:px-10">
         <Link href="/" aria-label="Zracko home">
-          <Logo />
+          <Logo wordmarkClassName="text-xl md:text-2xl" />
         </Link>
 
         <div className="flex items-center gap-8">
@@ -40,16 +41,19 @@ export function Header() {
                 )}
               >
                 {link.label}
+                {link.hasDropdown ? (
+                  <ChevronDown className="size-3.5 opacity-70" aria-hidden="true" />
+                ) : null}
               </Link>
             ))}
           </nav>
 
-          <GradientButton asChild className="hidden md:inline-flex">
-            <Link href="/pricing">
+          <RequestDemoDialog>
+            <GradientButton className="hidden md:inline-flex">
               Request a Demo
               <ArrowUpRight className="size-4" />
-            </Link>
-          </GradientButton>
+            </GradientButton>
+          </RequestDemoDialog>
 
           <Sheet>
             <SheetTrigger asChild>
@@ -74,24 +78,25 @@ export function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "rounded-lg px-2 py-2 text-sm font-normal transition-colors hover:bg-muted hover:text-primary",
+                        "inline-flex items-center gap-1 rounded-lg px-2 py-2 text-sm font-normal transition-colors hover:bg-muted hover:text-primary",
                         pathname === link.href ? "text-primary" : "text-[#111111]"
                       )}
                     >
                       {link.label}
+                      {link.hasDropdown ? (
+                        <ChevronDown className="size-3.5 opacity-70" aria-hidden="true" />
+                      ) : null}
                     </Link>
                   </SheetClose>
                 ))}
               </nav>
               <div className="px-4">
-                <SheetClose asChild>
-                  <GradientButton asChild>
-                    <Link href="/pricing">
-                      Request a Demo
-                      <ArrowUpRight className="size-4" />
-                    </Link>
+                <RequestDemoDialog>
+                  <GradientButton>
+                    Request a Demo
+                    <ArrowUpRight className="size-4" />
                   </GradientButton>
-                </SheetClose>
+                </RequestDemoDialog>
               </div>
             </SheetContent>
           </Sheet>

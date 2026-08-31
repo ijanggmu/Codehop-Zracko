@@ -50,7 +50,7 @@ export function Modules() {
   return (
     <section
       id="product"
-      className="modules-bg w-full min-h-[732px] pt-[102px] opacity-100"
+      className="modules-bg w-full pt-20 lg:min-h-[732px]"
     >
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
@@ -61,7 +61,7 @@ export function Modules() {
           {modules.map((module) => (
             <Card
               key={module.logoAlt}
-              className="relative h-[509.25px] w-[291px] shrink-0 gap-0 overflow-hidden rounded-[16px] border border-[#FFFFFF1A] bg-[#FFFFFF01] p-0 ring-0 shadow-[0px_8px_10px_-6px_#0000001A,0px_20px_25px_-5px_#0000001A]"
+              className="relative h-[420px] w-full max-w-[340px] shrink-0 gap-0 overflow-hidden rounded-[16px] border border-[#FFFFFF1A] bg-[#FFFFFF01] p-0 shadow-[0px_8px_10px_-6px_#0000001A,0px_20px_25px_-5px_#0000001A] ring-0 sm:h-[509.25px] sm:w-[291px] sm:max-w-none"
             >
               <Image
                 src={module.image}

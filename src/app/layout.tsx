@@ -42,7 +42,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${geist.variable} ${geistMono.variable}`}
     >
-      <body className="antialiased">
+      <body className="overflow-x-hidden antialiased">
         <Header />
         <main className="pt-24">{children}</main>
         <Footer />

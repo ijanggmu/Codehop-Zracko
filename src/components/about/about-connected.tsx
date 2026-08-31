@@ -43,7 +43,7 @@ export function AboutConnected() {
           {cards.map(({ icon: Icon, title, description, href, cta }) => (
             <article
               key={title}
-              className="flex h-[319px] flex-col gap-6 rounded-[24px] border border-[#E0E0E0] bg-white p-8"
+              className="flex h-auto min-h-[319px] flex-col gap-6 rounded-[24px] border border-[#E0E0E0] bg-white p-6 sm:p-8"
             >
               <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Icon className="size-5" />

@@ -21,7 +21,7 @@ export function SectionHeader({
     <div className={cn("mx-auto max-w-4xl text-center", className)}>
       <h2
         className={cn(
-          "align-middle text-4xl font-medium text-foreground",
+          "align-middle text-2xl font-medium text-foreground sm:text-3xl md:text-4xl",
           titleClassName
         )}
       >

@@ -47,7 +47,7 @@ export function Faq({
   subtitle?: string;
 }) {
   return (
-    <section id="faq" className="mt-30">
+    <section id="faq" className="mt-30 pb-10">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader title="Questions, Answered." subtitle={subtitle} />
         <Accordion
@@ -60,9 +60,9 @@ export function Faq({
             <AccordionItem
               key={`${faq.question}-${index}`}
               value={`item-${index}`}
-              className="rounded-[16px] border-0 bg-[#F7FAFF] px-6 not-last:border-b-0"
+              className="rounded-[16px] border-0 bg-[#F7FAFF] px-4 not-last:border-b-0 sm:px-6"
             >
-              <AccordionTrigger className="min-h-[72px] items-center py-5 text-left text-[18px] font-medium leading-[32px] tracking-[-0.8px] text-[#111111] hover:no-underline **:data-[slot=accordion-trigger-icon]:size-[18px] **:data-[slot=accordion-trigger-icon]:text-[#111111]">
+              <AccordionTrigger className="min-h-[64px] items-center py-4 text-left text-base font-medium leading-snug tracking-[-0.8px] text-[#111111] hover:no-underline sm:min-h-[72px] sm:py-5 sm:text-[18px] sm:leading-[32px] **:data-[slot=accordion-trigger-icon]:size-[18px] **:data-[slot=accordion-trigger-icon]:text-[#111111]">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="pb-5 text-base font-light leading-6 text-[#111111]">

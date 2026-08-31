@@ -18,7 +18,7 @@ function LeadershipCard({
   image: string;
 }) {
   return (
-    <article className="relative h-[389px] w-[282px] shrink-0 overflow-hidden rounded-[16px] border-t-4 border-primary">
+    <article className="relative h-[389px] w-full max-w-[282px] overflow-hidden rounded-[16px] border-t-4 border-primary">
       <Image src={image} alt={name} fill className="object-cover object-top" sizes="282px" />
       <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-4 pb-6 text-center">
@@ -39,12 +39,12 @@ export function AboutLeadership() {
         />
 
         <div className="flex w-full flex-col items-center gap-10">
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="flex w-full flex-wrap justify-center gap-5 sm:gap-10">
             {leaders.slice(0, 4).map((leader, index) => (
               <LeadershipCard key={`leader-top-${index}`} {...leader} />
             ))}
           </div>
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="flex w-full flex-wrap justify-center gap-5 sm:gap-10">
             {leaders.slice(4).map((leader, index) => (
               <LeadershipCard key={`leader-bottom-${index}`} {...leader} />
             ))}

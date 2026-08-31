@@ -40,4 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/public/home/appAnywhere.mp4
+/public/home/appAnywhere-1.mp4
+/public/home/appAnywhere-2.mp4
+/public/home/appAnywhere-3.mp4
+/public/home/appAnywhere-4.mp4

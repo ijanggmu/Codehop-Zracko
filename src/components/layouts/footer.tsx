@@ -20,7 +20,7 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer id="about" className="mt-30 bg-[#F7FAFF]">
+    <footer id="about" className=" bg-[#F7FAFF]">
       <div className="mx-auto flex min-h-[598px] w-full max-w-[1440px] flex-col justify-between px-6 pt-10 pb-8 sm:px-12 xl:px-[120px]">
         <div className="flex flex-col items-center text-center">
           <SectionHeader title="Contact Us" subtitle="Start free. Upgrade when you're ready to grow." />

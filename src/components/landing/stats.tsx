@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { SectionHeader } from "@/components/common/section-header";
+import { SlotNumber } from "@/components/landing/slot-number";
 import { cn } from "@/lib/utils";
 
 const clients = [
@@ -58,20 +59,18 @@ export function Stats() {
         </div>
 
         <div className="overflow-hidden rounded-[10px] border border-[#E0E0E0] bg-white">
-          <div className="flex flex-col xl:flex-row">
+          <div className="flex flex-row">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
                 className={cn(
-                  "relative flex h-[164.64px] w-full flex-col items-center justify-center gap-2.5 py-10 xl:w-[300px]",
+                  "relative flex min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 py-4 sm:gap-2.5 sm:px-2 sm:py-8 xl:h-[164.64px] xl:w-[300px] xl:py-10",
                   index < stats.length - 1 &&
-                    "after:absolute max-xl:after:inset-x-0 max-xl:after:bottom-0 max-xl:after:h-px max-xl:after:bg-[repeating-linear-gradient(to_right,#E0E0E0_0_2px,transparent_2px_3px)] xl:after:inset-y-0 xl:after:right-0 xl:after:w-px xl:after:bg-[repeating-linear-gradient(to_bottom,#E0E0E0_0_2px,transparent_2px_3px)]"
+                    "after:absolute after:inset-y-2 after:right-0 after:w-px after:bg-[repeating-linear-gradient(to_bottom,#E0E0E0_0_2px,transparent_2px_3px)] sm:after:inset-y-0"
                 )}
               >
-                <p className="bg-[linear-gradient(180deg,#01B5B1_37.98%,#1085FC_100%)] bg-clip-text text-[57px] font-normal leading-[70px] text-transparent">
-                  {stat.value}
-                </p>
-                <p className="text-center text-base font-regular line-height-[21px] text-sidebar-foreground">
+                <SlotNumber value={stat.value} />
+                <p className="text-center text-[10px] font-regular leading-tight text-sidebar-foreground sm:text-sm xl:text-base xl:leading-[21px]">
                   {stat.label}
                 </p>
               </div>

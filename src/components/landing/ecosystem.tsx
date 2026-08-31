@@ -112,7 +112,7 @@ export function Ecosystem() {
   }
 
   return (
-    <section className="ecosystem-bg mt-30 min-h-[500px] overflow-visible lg:min-h-[625px]">
+    <section className="ecosystem-bg mt-30 min-h-[500px] overflow-x-hidden lg:min-h-[625px]">
       <div className="mx-auto flex h-full w-full max-w-[1440px] flex-col gap-8 px-5 pt-12 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title="A Complete Business Ecosystem"
@@ -121,7 +121,7 @@ export function Ecosystem() {
 
         <div
           ref={orbitRef}
-          className="relative mx-auto aspect-square w-full max-w-[560px]"
+          className="relative mx-auto aspect-square w-full max-w-[min(100%,560px)] overflow-hidden sm:overflow-visible"
           onMouseLeave={() => setHovered(null)}
         >
           <div className="pointer-events-none absolute inset-[12%] rounded-full border border-dashed border-[#0FAFA466]" />
@@ -141,7 +141,7 @@ export function Ecosystem() {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                   <article
                     className={cn(
-                      "orbit-item pointer-events-auto z-10 flex w-[110px] cursor-pointer flex-col items-center gap-2 rounded-[20px] bg-white px-3 py-3.5",
+                      "orbit-item pointer-events-auto z-10 flex w-[72px] cursor-pointer flex-col items-center gap-1.5 rounded-[16px] bg-white px-2 py-2 sm:w-[110px] sm:gap-2 sm:rounded-[20px] sm:px-3 sm:py-3.5",
                       paused && "orbit-paused",
                       hovered?.label === label && "z-30"
                     )}
@@ -199,13 +199,13 @@ export function Ecosystem() {
             </div>
           ) : null}
 
-          <div className="pointer-events-none absolute top-1/2 left-1/2 z-10 h-[68.95px] w-[69px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[12px]">
+          <div className="pointer-events-none absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
             <Image
               src="/icons/zracko-logo.png"
               alt="Zracko"
-              width={69}
-              height={69}
-              className="h-[68.95px] w-[69px] object-contain"
+              width={24}
+              height={24}
+              className="h-[23.54px] w-[23.55px] shrink-0"
             />
           </div>
         </div>
