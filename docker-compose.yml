@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zracko:latest
+    container_name: zracko
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    env_file:
+      - path: .env
+        required: false
+    networks:
+      - edge
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=edge"
+      - "traefik.http.routers.zracko.rule=Host(`zracko.com`) || Host(`www.zracko.com`)"
+      - "traefik.http.routers.zracko.entrypoints=websecure"
+      - "traefik.http.services.zracko.loadbalancer.server.port=3000"
+
+networks:
+  edge:
+    external: true
