@@ -1,14 +1,32 @@
 services:
   app:
-    image: ghcr.io/dinesh-jrr/zracko:latest
-    container_name: zracko
-    restart: unless-stopped
-    ports:
-      - "127.0.0.1:3000:3000"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zracko:local
+    container_name: zracko-app
+    restart: always
     environment:
-      - NODE_ENV=production
-      - PORT=3000
-      - HOSTNAME=0.0.0.0
-    env_file:
-      - path: .env
-        required: false
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+      VIRTUAL_HOST: zracko.com,www.zracko.com
+      LETSENCRYPT_HOST: zracko.com,www.zracko.com
+      LETSENCRYPT_EMAIL: sthaejan00@gmail.com
+      VIRTUAL_PORT: "3000"
+      CLIENT_MAX_BODY_SIZE: 50M
+    expose:
+      - "3000"
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+    name: beemaedge_proxy
+ 
