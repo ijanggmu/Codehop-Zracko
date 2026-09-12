@@ -73,7 +73,7 @@ export function Features() {
   }
 
   return (
-    <section id="solutions" className="mt-30 overflow-hidden">
+    <section id="solutions" className="mt-15 overflow-hidden lg:mt-30">
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title="Everything Connected"

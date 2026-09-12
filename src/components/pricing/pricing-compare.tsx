@@ -130,7 +130,7 @@ function CellValue({ value }: { value: Cell }) {
 
 export function PricingCompare() {
   return (
-    <section className="mx-auto mt-30 flex w-full max-w-[1440px] flex-col gap-10 px-5 pb-10 sm:px-12 xl:px-[120px]">
+    <section className="mx-auto mt-15 flex w-full max-w-[1440px] flex-col gap-10 px-5 pb-10 sm:px-12 lg:mt-30 xl:px-[120px]">
       <SectionHeader
         title="Every Module Talks to Every Other Module."
         subtitle="Most businesses run five different tools that don't talk to each other."

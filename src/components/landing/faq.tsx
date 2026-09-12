@@ -47,7 +47,7 @@ export function Faq({
   subtitle?: string;
 }) {
   return (
-    <section id="faq" className="mt-30 pb-10">
+    <section id="faq" className="mt-15 pb-10 lg:mt-30">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader title="Questions, Answered." subtitle={subtitle} />
         <Accordion

@@ -6,7 +6,7 @@ export function DownloadCta() {
   return (
     <section
       id="download"
-      className="relative mt-30 h-auto w-full overflow-hidden bg-[#002A27] py-10 [background-image:radial-gradient(circle,rgb(255_255_255/0.14)_1px,transparent_1.2px)] [background-size:22px_22px] sm:py-12 lg:h-[270px] lg:py-0"
+      className="relative mt-15 h-auto w-full overflow-hidden bg-[#002A27] py-10 [background-image:radial-gradient(circle,rgb(255_255_255/0.14)_1px,transparent_1.2px)] [background-size:22px_22px] sm:py-12 lg:mt-30 lg:h-[270px] lg:py-0"
     >
       <div className="relative mx-auto h-full w-full max-w-[1440px]">
         <div className="flex h-full flex-col justify-center px-5 sm:px-12 xl:px-[120px]">

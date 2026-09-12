@@ -18,7 +18,7 @@ function LeadershipCard({
   image: string;
 }) {
   return (
-    <article className="relative h-[389px] w-full max-w-[282px] overflow-hidden rounded-[16px] border-t-4 border-primary">
+    <article className="relative h-[389px] w-full max-w-[282px] overflow-hidden rounded-[16px] border-t-4 border-primary max-lg:w-[min(80vw,282px)] max-lg:shrink-0 max-lg:snap-start">
       <Image src={image} alt={name} fill className="object-cover object-top" sizes="282px" />
       <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-4 pb-6 text-center">
@@ -31,14 +31,20 @@ function LeadershipCard({
 
 export function AboutLeadership() {
   return (
-    <section className="mt-30 bg-white">
+    <section className="mt-15 bg-white lg:mt-30">
       <div className="mx-auto flex w-full  flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title="Our leadership team"
           subtitle="Most businesses run five different tools that don't talk to each other."
         />
 
-        <div className="flex w-full flex-col items-center gap-10">
+        <div className="-mx-5 flex w-[calc(100%+2.5rem)] snap-x snap-mandatory flex-nowrap gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden sm:-mx-12 sm:w-[calc(100%+6rem)] sm:px-12 lg:hidden">
+          {leaders.map((leader, index) => (
+            <LeadershipCard key={`leader-mobile-${index}`} {...leader} />
+          ))}
+        </div>
+
+        <div className="hidden w-full flex-col items-center gap-10 lg:flex">
           <div className="flex w-full flex-wrap justify-center gap-5 sm:gap-10">
             {leaders.slice(0, 4).map((leader, index) => (
               <LeadershipCard key={`leader-top-${index}`} {...leader} />

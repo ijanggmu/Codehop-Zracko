@@ -25,7 +25,7 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="mt-30">
+    <section className="mt-15 lg:mt-30">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title="Our Valuable Clients"

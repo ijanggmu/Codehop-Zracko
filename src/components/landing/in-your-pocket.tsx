@@ -27,7 +27,7 @@ const highlights = [
 
 export function InYourPocket() {
   return (
-    <section className="pocket-bg relative mt-30 overflow-hidden">
+    <section className="pocket-bg relative mt-15 overflow-hidden lg:mt-30">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 lg:flex-row lg:justify-between xl:px-[135px]">
         <div className="w-full max-w-[550px] shrink-0 ">
           <h2 className="max-w-[400px] text-2xl font-medium text-foreground sm:text-4xl">

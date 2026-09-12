@@ -20,7 +20,7 @@ export default function BusinessPage() {
       <BusinessHero />
       <Stats/>
       <BusinessFlexible />
-      <BusinessClients className="mt-30" />
+      <BusinessClients className="mt-15 lg:mt-30" />
       <ProductFeatures title="More Business" />
       <InYourPocket />
       <DownloadCta />

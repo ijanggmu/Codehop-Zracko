@@ -112,7 +112,7 @@ export function Ecosystem() {
   }
 
   return (
-    <section className="ecosystem-bg mt-30 min-h-[500px] overflow-x-hidden lg:min-h-[625px]">
+    <section className="ecosystem-bg mt-15 lg:mt-30">
       <div className="mx-auto flex h-full w-full max-w-[1440px] flex-col gap-8 px-5 pt-12 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title="A Complete Business Ecosystem"

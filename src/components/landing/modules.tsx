@@ -57,18 +57,18 @@ export function Modules() {
           title="Every Module Talks to Every Other Module."
           subtitle="Most businesses run five different tools that don't talk to each other."
         />
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-nowrap justify-center gap-2 max-lg:-mx-5 max-lg:justify-start max-lg:gap-3 max-lg:overflow-x-auto max-lg:px-5 max-lg:pb-2 max-lg:snap-x max-lg:snap-mandatory max-lg:[scrollbar-width:none] max-lg:[-webkit-overflow-scrolling:touch] max-lg:[&::-webkit-scrollbar]:hidden">
           {modules.map((module) => (
             <Card
               key={module.logoAlt}
-              className="relative h-[420px] w-full max-w-[340px] shrink-0 gap-0 overflow-hidden rounded-[16px] border border-[#FFFFFF1A] bg-[#FFFFFF01] p-0 shadow-[0px_8px_10px_-6px_#0000001A,0px_20px_25px_-5px_#0000001A] ring-0 sm:h-[509.25px] sm:w-[291px] sm:max-w-none"
+              className="relative h-[509.25px] w-[min(291px,calc((100%-1.5rem)/4))] shrink-0 gap-0 overflow-hidden rounded-[16px] border border-[#FFFFFF1A] bg-[#FFFFFF01] p-0 shadow-[0px_8px_10px_-6px_#0000001A,0px_20px_25px_-5px_#0000001A] ring-0 max-lg:h-[420px] max-lg:w-[min(80vw,291px)] max-lg:snap-start"
             >
               <Image
                 src={module.image}
                 alt={module.alt}
                 fill
                 className="object-cover object-top"
-                sizes="291px"
+                sizes="(max-width: 1024px) 80vw, 291px"
               />
               <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col gap-4 p-5">

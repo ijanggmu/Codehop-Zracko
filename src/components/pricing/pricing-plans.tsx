@@ -132,11 +132,11 @@ export function PricingPlans() {
           </button>
         </div>
 
-        <div className="mt-12 flex w-full flex-wrap items-start justify-center gap-6">
+        <div className="mt-12 flex w-full flex-wrap items-start justify-center gap-6 max-lg:-mx-5 max-lg:w-[calc(100%+2.5rem)] max-lg:snap-x max-lg:snap-mandatory max-lg:flex-nowrap max-lg:justify-start max-lg:overflow-x-auto max-lg:px-5 max-lg:pt-4 max-lg:pb-2 max-lg:[scrollbar-width:none] max-lg:[-webkit-overflow-scrolling:touch] max-lg:[&::-webkit-scrollbar]:hidden">
           {plans.map((plan) => (
             <article
               key={plan.name}
-              className="group relative flex h-auto w-full max-w-[384px] flex-col rounded-[24px] border-2 border-transparent bg-[#FFFFFF] px-6 pt-8 pb-8 shadow-[5px_5px_50px_0px_#0000001A] transition-colors hover:border-primary lg:h-[652px]"
+              className="group relative flex h-auto w-full max-w-[384px] flex-col rounded-[24px] border-2 border-transparent bg-[#FFFFFF] px-6 pt-8 pb-8 shadow-[5px_5px_50px_0px_#0000001A] transition-colors hover:border-primary max-lg:w-[min(85vw,384px)] max-lg:shrink-0 max-lg:snap-start lg:h-[652px]"
             >
               {plan.badge ? (
                 <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-xs font-medium text-white">

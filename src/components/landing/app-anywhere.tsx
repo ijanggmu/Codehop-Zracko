@@ -187,7 +187,7 @@ export function AppAnywhere() {
   return (
     <section
       ref={sectionRef}
-      className="relative mt-30 w-full bg-[#002A27] lg:bg-transparent"
+      className="relative mt-15 w-full bg-[#002A27] lg:mt-30 lg:bg-transparent"
     >
       <div className="hidden lg:block">
         <div
@@ -229,20 +229,25 @@ export function AppAnywhere() {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-12 lg:hidden">
-        {PARTS.map((part) => (
-          <article key={part.title} className="flex flex-col py-8">
-            <PartCopy part={part} />
-            <div className="relative mt-8 h-[240px] w-full overflow-hidden rounded-[24px] bg-black/30 sm:h-[320px]">
-              <PartVideo
-                src={part.video}
-                label={part.label}
-                play
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </article>
-        ))}
+      <div className="lg:hidden">
+        <div className="flex snap-x snap-mandatory flex-nowrap gap-4 overflow-x-auto px-5 py-16 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden sm:px-12">
+          {PARTS.map((part) => (
+            <article
+              key={part.title}
+              className="flex w-[min(85vw,360px)] shrink-0 snap-start flex-col"
+            >
+              <PartCopy part={part} />
+              <div className="relative mt-8 h-[240px] w-full overflow-hidden rounded-[24px] bg-black/30 sm:h-[320px]">
+                <PartVideo
+                  src={part.video}
+                  label={part.label}
+                  play
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

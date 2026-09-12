@@ -78,16 +78,19 @@ export function ProductFeatures({
   title?: string;
 }) {
   return (
-    <section className="mt-30 bg-[linear-gradient(180deg,rgba(15,175,164,0)_0%,rgba(15,175,164,0.05)_50%,rgba(16,133,252,0.05)_75%,rgba(16,133,252,0)_100%)]">
+    <section className="mt-15 bg-[linear-gradient(180deg,rgba(15,175,164,0)_0%,rgba(15,175,164,0.05)_50%,rgba(16,133,252,0.05)_75%,rgba(16,133,252,0)_100%)] lg:mt-30">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-10 px-5 sm:px-12 xl:px-[120px]">
         <SectionHeader
           title={title}
           subtitle="Most businesses run five different tools that don't talk to each other."
         />
 
-        <div className="grid w-full max-w-[1200px] grid-cols-1 gap-8 sm:grid-cols-2 xl:hidden">
+        <div className="-mx-5 flex w-[calc(100%+2.5rem)] snap-x snap-mandatory flex-nowrap gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden sm:-mx-12 sm:w-[calc(100%+6rem)] sm:px-12 xl:hidden">
           {columns.map((column) => (
-            <div key={column.title} className="flex flex-col gap-4">
+            <div
+              key={column.title}
+              className="flex w-[min(80vw,280px)] shrink-0 snap-start flex-col gap-4"
+            >
               <ColumnTitle title={column.title} />
               <ColumnList features={column.features} />
             </div>
